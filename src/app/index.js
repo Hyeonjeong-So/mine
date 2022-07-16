@@ -10,7 +10,7 @@ import { Footer } from 'app/components/Footer';
 import Header from 'app/components/Header';
 import Main from 'app/components/Main';
 
-const Globalstyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
   ${reset};
   body{
     background-color: white;
@@ -21,7 +21,7 @@ export function App() {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <Globalstyle />
+        <GlobalStyle />
         <Header />
         <Main />
         <Footer />
