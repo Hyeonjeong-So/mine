@@ -4,8 +4,8 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
 
-import Profile from './Profile';
-import HeaderMenu from './HeaderMenu';
+import Profile from 'app/components/Header/Profile';
+import HeaderMenu from 'app/components/Header/HeaderMenu';
 
 const Header = () => {
   return (

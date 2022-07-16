@@ -3,8 +3,8 @@ import Box from '@mui/material/Box';
 
 // import DarkMode from './DarkMode/DarkMode';
 import AdbIcon from '@mui/icons-material/Adb';
-import { HomeLogo } from './HomeLogo';
-import MenuButton from './MenuButton';
+import { HomeLogo } from 'app/components/Header/HeaderMenu/HomeLogo';
+import MenuButton from 'app/components/Header/HeaderMenu/MenuButton';
 
 const pages = [
   { pageName: 'HOME', pageAddress: '/' },

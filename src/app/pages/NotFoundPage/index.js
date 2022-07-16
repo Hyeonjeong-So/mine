@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from '../../components/Link';
+import { Link } from 'app/components/Link';
 
 export const NotFoundPage = () => {
   return (
