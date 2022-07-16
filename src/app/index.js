@@ -12,8 +12,8 @@ import { SignupPage } from './pages/SignupPage';
 import { HomePage } from './pages/HomePage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { ForgetPasswordPage } from './pages/ForgetPasswordPage';
-import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+import Header from './components/Header';
 
 const Globalstyle = createGlobalStyle`
   ${reset};
