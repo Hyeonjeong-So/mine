@@ -38,6 +38,7 @@ const Music = () => {
             ) : (
               <SkipPreviousIcon />
             )}
+            <SkipPreviousIcon />
           </IconButton>
           <IconButton aria-label="play/pause">
             <PlayArrowIcon sx={{ height: 20, width: 20 }} />
@@ -48,6 +49,7 @@ const Music = () => {
             ) : (
               <SkipNextIcon />
             )}
+            <SkipNextIcon />
           </IconButton>
         </Box>
       </Box>
