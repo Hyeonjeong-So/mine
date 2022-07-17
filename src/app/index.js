@@ -8,7 +8,6 @@ import theme from 'app/theme';
 
 import Header from 'app/components/Header';
 import Main from 'app/components/Main';
-import history from 'app/utils/history';
 import { TotalWrapper } from 'app/styles';
 
 const GlobalStyle = createGlobalStyle`
@@ -21,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
 export function App() {
   return (
     <ThemeProvider theme={theme}>
-      <BrowserRouter history={history}>
+      <BrowserRouter>
         <GlobalStyle />
         <TotalWrapper>
           <Header />

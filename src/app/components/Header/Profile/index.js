@@ -7,12 +7,12 @@ import Menu from '@mui/material/Menu';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-
-import history from 'app/utils/history';
+import { useNavigate } from 'react-router-dom';
 
 const settings = [{ name: 'Logout', pageAddress: '/logout' }];
 
 const Profile = () => {
+  const navigate = useNavigate();
   const [anchorElUser, setAnchorElUser] = useState(null);
 
   const handleOpenUserMenu = (event) => {
@@ -25,7 +25,7 @@ const Profile = () => {
 
   const handleClickButton = () => {
     setAnchorElUser(null);
-    history.push('/logout');
+    navigate('/logout');
   };
 
   return (

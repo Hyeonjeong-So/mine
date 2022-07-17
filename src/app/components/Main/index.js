@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Switch, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 
 import { LoginPage } from 'app/pages/LoginPage';
 import { LogoutPage } from 'app/pages/LogoutPage';
@@ -41,17 +41,17 @@ const Main = () => {
   return (
     <MainWrapper>
       {showSideBar(location.pathname) && <SideBar />}
-      <Switch>
-        <Route exact path={homePageAddress} component={HomePage} />
-        <Route path={loginPageAddress} component={LoginPage} />
-        <Route path={signUpPageAddress} component={SignupPage} />
-        <Route path={logoutPageAddress} component={LogoutPage} />
-        <Route path={forgetPassWordAddress} component={ForgetPasswordPage} />
-        <Route path={calendarPageAddress} component={CalendarPage} />
-        <Route path={diaryPageAddress} component={DiaryPage} />
-        <Route path={todoPageAddress} component={TodoPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
+      <Routes>
+        <Route exact path={homePageAddress} element={<HomePage />} />
+        <Route path={loginPageAddress} element={<LoginPage />} />
+        <Route path={signUpPageAddress} element={<SignupPage />} />
+        <Route path={logoutPageAddress} element={<LogoutPage />} />
+        <Route path={forgetPassWordAddress} element={<ForgetPasswordPage />} />
+        <Route path={calendarPageAddress} element={<CalendarPage />} />
+        <Route path={diaryPageAddress} element={<DiaryPage />} />
+        <Route path={todoPageAddress} element={<TodoPage />} />
+        <Route component={<NotFoundPage />} />
+      </Routes>
     </MainWrapper>
   );
 };
