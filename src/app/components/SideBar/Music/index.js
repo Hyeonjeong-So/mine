@@ -20,36 +20,36 @@ const Music = () => {
         marginTop: '30px',
         width: '250px',
         height: '150px',
+        justifyContent: 'center',
+        alignContent: 'center',
+        bgcolor: '#fff9c4',
       }}
     >
-      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          textAlign: 'center',
+          flexDirection: 'column',
+          margin: 'auto',
+        }}
+      >
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component="div" variant="14">
             Like Im Gonna Lose You
           </Typography>
-          <Typography variant="10" color="text.secondary" component="div">
+          <Typography variant="14" color="text.secondary" component="div">
             Meghan Trainor
           </Typography>
         </CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
           <IconButton aria-label="previous">
-            {theme.direction === 'rtl' ? (
-              <SkipNextIcon />
-            ) : (
-              <SkipPreviousIcon />
-            )}
-            <SkipPreviousIcon />
+            <SkipPreviousIcon sx={{ height: 40, width: 40 }} />
           </IconButton>
           <IconButton aria-label="play/pause">
-            <PlayArrowIcon sx={{ height: 20, width: 20 }} />
+            <PlayArrowIcon sx={{ height: 40, width: 40 }} />
           </IconButton>
           <IconButton aria-label="next">
-            {theme.direction === 'rtl' ? (
-              <SkipPreviousIcon />
-            ) : (
-              <SkipNextIcon />
-            )}
-            <SkipNextIcon />
+            <SkipNextIcon sx={{ height: 40, width: 40 }} />
           </IconButton>
         </Box>
       </Box>

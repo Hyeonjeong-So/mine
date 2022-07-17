@@ -31,10 +31,10 @@ const ScoringSlider = () => {
     <Box sx={{ width: 250, marginTop: 5, marginLeft: 1 }}>
       <Slider
         aria-label="Custom marks"
-        defaultValue={20}
+        defaultValue={0}
         getAriaValueText={valuetext}
         step={5}
-        valueLabelDisplay="auto"
+        valueLabelDisplay="auto "
         marks={marks}
       />
     </Box>
