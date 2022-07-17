@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -7,7 +8,9 @@ import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+import history from 'app/utils/history';
+
+const settings = [{ name: 'Logout', pageAddress: '/logout' }];
 
 const Profile = () => {
   const [anchorElUser, setAnchorElUser] = useState(null);
@@ -18,6 +21,11 @@ const Profile = () => {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+
+  const handleClickButton = () => {
+    setAnchorElUser(null);
+    history.push('/logout');
   };
 
   return (
@@ -44,8 +52,8 @@ const Profile = () => {
         onClose={handleCloseUserMenu}
       >
         {settings.map((setting) => (
-          <MenuItem key={setting} onClick={handleCloseUserMenu}>
-            <Typography textAlign="center">{setting}</Typography>
+          <MenuItem key={setting.name} onClick={handleClickButton}>
+            <Typography textAlign="center">{setting.name}</Typography>
           </MenuItem>
         ))}
       </Menu>

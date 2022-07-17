@@ -1,10 +1,8 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import Button from '@mui/material/Button';
+import history from 'app/utils/history';
 
 const MenuButton = ({ pageName, pageAddress }) => {
-  const history = useHistory();
-
   const navigateToPageAddress = () => {
     history.push(pageAddress);
   };
