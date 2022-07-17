@@ -6,10 +6,10 @@ import { BrowserRouter } from 'react-router-dom';
 
 import theme from 'app/theme';
 
-import { Footer } from 'app/components/Footer';
 import Header from 'app/components/Header';
 import Main from 'app/components/Main';
 import history from 'app/utils/history';
+import { TotalWrapper } from 'app/styles';
 
 const GlobalStyle = createGlobalStyle`
   ${reset};
@@ -23,9 +23,10 @@ export function App() {
     <ThemeProvider theme={theme}>
       <BrowserRouter history={history}>
         <GlobalStyle />
-        <Header />
-        <Main />
-        <Footer />
+        <TotalWrapper>
+          <Header />
+          <Main />
+        </TotalWrapper>
       </BrowserRouter>
     </ThemeProvider>
   );
