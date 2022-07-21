@@ -1,30 +1,48 @@
-import React from 'react';
-import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import React, { useEffect, useState } from 'react';
+
 import reset from 'styled-reset';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { createGlobalStyle } from 'styled-components';
+import { BrowserRouter } from 'react-router-dom';
 
-import { LoginPage } from './pages/LoginPage';
-import { HomePage } from './pages/HomePage';
-import { NotFoundPage } from './pages/NotFoundPage';
-import theme from './theme';
+import theme from 'app/theme';
 
-const Globalstyle = createGlobalStyle`
+import Header from 'app/components/Header';
+import Main from 'app/components/Main';
+import { TotalWrapper } from 'app/styles';
+import { MainWrapper } from 'app/components/Main/styles';
+import { ThemeProvider } from '@mui/material';
+
+const GlobalStyle = createGlobalStyle`
   ${reset};
   body{
     background-color: white;
   }
 `;
 
+const getUser = () => {
+  return JSON.parse(localStorage.getItem('user'));
+};
+
 export function App() {
+  const [user, setUser] = useState(null);
+
+  if (!user) {
+    const fetchedUser = getUser();
+    if (fetchedUser) {
+      setUser(fetchedUser);
+    }
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <Globalstyle />
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/login" component={LoginPage} />
-          <Route component={NotFoundPage} />
-        </Switch>
+        <GlobalStyle />
+        <TotalWrapper>
+          {user && <Header />}
+          <MainWrapper>
+            <Main user={user} />
+          </MainWrapper>
+        </TotalWrapper>
       </BrowserRouter>
     </ThemeProvider>
   );

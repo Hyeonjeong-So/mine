@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import {
   Alert,
   Avatar,
@@ -10,42 +11,52 @@ import {
   Typography,
 } from '@mui/material';
 import BookmarksIcon from '@mui/icons-material/Bookmarks';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
+const isPasswordValid = (password, confirmPassword) => {
+  if (
+    password.length < 6 ||
+    confirmPassword.length < 6 ||
+    password !== confirmPassword
+  ) {
+    return false;
+  }
+  return true;
+};
 
 // TODO: change using backend
 
-export const LoginPage = () => {
+export const SignupPage = () => {
   const navigate = useNavigate();
 
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const postLoginRequest = (email, password) => {
-    const name = localStorage.getItem('name');
-    localStorage.setItem('user', JSON.stringify({ name, email, password }));
-    navigate('/');
+  const postSignupRequest = (name, email, password) => {
+    localStorage.setItem('name', name);
+    localStorage.setItem('email', email);
+    localStorage.setItem('password', password);
+    navigate('/login');
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    const name = data.get('name');
     const email = data.get('email');
     const password = data.get('password');
+    const confirmPassword = data.get('confirmPassword');
 
-    if (!email || !password) {
+    if (!name || !email || !password || !confirmPassword) {
       setError('모든 항목을 입력해주세요.');
       return;
     }
 
-    const userEmail = localStorage.getItem('email');
-    const userPassword = localStorage.getItem('password');
-
-    if (userEmail !== email || userPassword !== password) {
-      setError('해당하는 유저가 없습니다.');
+    if (!isPasswordValid(password, confirmPassword)) {
+      setError('비밀번호를 확인하세요.');
       return;
     }
-
-    postLoginRequest(email, password);
+    postSignupRequest(name, email, password);
   };
 
   return (
@@ -63,10 +74,19 @@ export const LoginPage = () => {
           <BookmarksIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          로그인
+          회원가입
         </Typography>
         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
           <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <TextField
+                name="name"
+                required
+                fullWidth
+                label="닉네임"
+                autoFocus
+              />
+            </Grid>
             <Grid item xs={12}>
               <TextField
                 name="email"
@@ -85,6 +105,15 @@ export const LoginPage = () => {
                 type="password"
               />
             </Grid>
+            <Grid item xs={12}>
+              <TextField
+                name="confirmPassword"
+                required
+                fullWidth
+                label="비밀번호 확인"
+                type="password"
+              />
+            </Grid>
           </Grid>
           {error ? (
             <Alert sx={{ mt: 3 }} severity="error">
@@ -99,12 +128,12 @@ export const LoginPage = () => {
             loading={loading}
             sx={{ mt: 3, mb: 2 }}
           >
-            로그인
+            회원가입
           </Button>
           <Grid container justifyContent="flex-end">
             <Grid item>
-              <Link to="/signup" style={{ textDecoration: 'none' }}>
-                가입한 적이 없나요? 회원가입으로 이동
+              <Link to="/login" style={{ textDecoration: 'none' }}>
+                이미 계정이 있나요? 로그인으로 이동
               </Link>
             </Grid>
           </Grid>
