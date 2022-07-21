@@ -1,5 +1,6 @@
 import React from 'react';
+import { ChangePage } from '../ChangePage';
 
 export const CalendarPage = () => {
-  return <div>CalendarPage</div>;
+  return <ChangePage />;
 };

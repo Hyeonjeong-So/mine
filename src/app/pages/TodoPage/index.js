@@ -1,5 +1,6 @@
 import React from 'react';
+import { ChangePage } from '../ChangePage';
 
 export const TodoPage = () => {
-  return <div>TodoPage</div>;
+  return <ChangePage />;
 };

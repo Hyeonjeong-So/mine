@@ -1,5 +1,6 @@
 import React from 'react';
+import { ChangePage } from '../ChangePage';
 
 export const DiaryPage = () => {
-  return <div>DiaryPage</div>;
+  return <ChangePage />;
 };
