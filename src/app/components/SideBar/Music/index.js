@@ -22,7 +22,7 @@ const Music = () => {
         height: '150px',
         justifyContent: 'center',
         alignContent: 'center',
-        bgcolor: '#fff9c4',
+        bgcolor: '#fce4ec',
       }}
     >
       <Box

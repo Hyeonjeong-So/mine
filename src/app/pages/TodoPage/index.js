@@ -29,7 +29,7 @@ export const TodoPage = () => {
           <br />
           <DatePicker />
           <Box component="form" noValidate sx={{ mt: 3 }}>
-            <Grid container spacing={2}>
+            {/* <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
                   name="email"
@@ -48,8 +48,8 @@ export const TodoPage = () => {
                   type="password"
                 />
               </Grid>
-            </Grid>
-            <Button
+            </Grid> */}
+            {/* <Button
               type="submit"
               fullWidth
               variant="contained"
@@ -64,7 +64,7 @@ export const TodoPage = () => {
                   가입한 적이 없나요? 회원가입으로 이동
                 </Link>
               </Grid>
-            </Grid>
+            </Grid> */}
           </Box>
         </Box>
       </Container>

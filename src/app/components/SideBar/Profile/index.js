@@ -9,20 +9,20 @@ import UploadButton from './UploadButton/styles';
 
 const Profile = () => {
   return (
-    <Card sx={{ maxWidth: 250, height: 500, marginTop: 10 }}>
+    <Card sx={{ marginTop: 10 }}>
       <CardMedia
         component="img"
+        width="250"
         height="250"
-        src="public/images/profile.jpeg"
+        // src={'components/images/profile.jpeg'}
         alt="Profile"
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Lizard
+          HyeonJeong
         </Typography>
         <Typography variant="body2" color="text.secondary" sx={{ height: 100 }}>
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          안녕하세요. 소현정입니다.
         </Typography>
       </CardContent>
       <SuccessButton />
